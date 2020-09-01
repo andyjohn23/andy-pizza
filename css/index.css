@@ -74,18 +74,13 @@
     height: 20px;
     object-fit: cover;
 }
+#specialslides{
+    margin-top: 2%;
+}
 #specialslides .card{
     background-color: #E4E8EB;
 }
-.specialslides .card1 img{
-    height: 47%;
-    object-fit: cover;
-}
-.specialslides .card2 img{
-    height: 100%;
-    object-fit: cover;
-}
-.specialslides .card3 img{
+.specialslides .card img{
     height: 100%;
     object-fit: cover;
 }
@@ -129,8 +124,20 @@
 .specialslides .arrow{
     width: 50px;
     height: 50px;
-    position: fixed;
-    margin-top:26%;
+    position: absolute;
+    margin-top:100%;
     background-color:#FF5D12;
     border-radius: 50%;
+}
+.menugallery h1{
+    font-size: 25px;
+    color: #FF5D12;
+    font-weight: bolder;
+    font-family: 'Archivo Black', sans-serif;
+}
+a.custom-card,
+a.custom-card:hover {
+  color: inherit;
+  border: none;
+  height: 200%;
 }
