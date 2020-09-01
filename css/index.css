@@ -89,14 +89,14 @@
     height: 100%;
     object-fit: cover;
 }
-.specialslides .card1 span{
+.specialslides .card span{
     color: #FF5D12;
     font-size: 40px;
     font-family: 'Archivo Black', sans-serif;
     font-weight: bold;
     margin-top: -20%;
 }
-.specialslides .card1 h5{
+.specialslides .card h5{
     position: relative;
     color:#522209;
     font-size: 40px;
@@ -104,40 +104,11 @@
     font-family: 'Archivo Black', sans-serif;
     line-height: 38px;
 }
-.specialslides .card2 span{
-    color: #FF5D12;
-    font-size: 40px;
-    font-family: 'Archivo Black', sans-serif;
-    font-weight: bold;
-    margin-top: -20%;
-}
-.specialslides .card2 h5{
-    position: relative;
-    color:#522209;
-    font-size: 40px;
-    font-weight: bold;
-    font-family: 'Archivo Black', sans-serif;
-    line-height: 38px;
-}
-.specialslides .card3 span{
-    color: #FF5D12;
-    font-size: 40px;
-    font-family: 'Archivo Black', sans-serif;
-    font-weight: bold;
-    margin-top: -20%;
-}
-.specialslides .card3 h5{
-    position: relative;
-    color:#522209;
-    font-size: 40px;
-    font-weight: bold;
-    font-family: 'Archivo Black', sans-serif;
-    line-height: 38px;
-}
+
 .specialslides button{
     background-color:#FF5D12;
     float: left;
-    margin-top: 20%;
+    margin-bottom:5%;
     outline: none;
     border: none;
     border-radius: 10px;
@@ -149,4 +120,9 @@
     text-align: center;
     color: white;
     text-decoration: none;
+}
+.specialslides .price{
+    font-size: 30px;
+    color:#FF5D12;
+    font-weight: bold;
 }
