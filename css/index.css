@@ -124,7 +124,6 @@
 .specialslides .arrow{
     width: 50px;
     height: 50px;
-    position: absolute;
     margin-top:100%;
     background-color:#FF5D12;
     border-radius: 50%;
@@ -137,7 +136,19 @@
 }
 a.custom-card,
 a.custom-card:hover {
+  background-image: url("../images/pizza3.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
   color: inherit;
   border: none;
-  height: 200%;
+  height: 350px;
+  text-decoration: none;
+}
+a.custom-card h2{
+    font-size: 30px;
+    color:#522209;
+    font-weight: bold;
+    font-family: 'Archivo Black', sans-serif;
 }
