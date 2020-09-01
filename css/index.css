@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+*{
+    top: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.navbar{
+    background-color:#FF5D12;
+    width: 100%;
+    height: 100%;
+}
+.logo{
+    color: white;
+    font-size: 30px;
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: 400;
+    margin-left: 20px;
+}
+.logo:hover{
+    color: white;
+}
+.logo p{
+    font-size: 12px;
+    font-weight: 100;
+    font-family: cursive;
+    line-height: 0px;
+}
+.navbar-toggler-icon{
+    background-image: url("../images/humberger.svg");
+}
+.accountuser a{
+    font-size: 13px;
+    color: white;
+    display: flex;
+    padding-right: 50px;
+}
+.accountuser img{
+    width: 40px;
+    height: 40px;
+}
+.offer{
+    padding-right:600px;
+    padding-top: 10px;
+}
+.offer a{
+    color: white;
+    font-size: 18px;
+    font-family: 'Archivo Black', sans-serif;
+}
+.specialsnav{
+    margin-top: 4%;
+    margin-left: 5%;
+}
+.specialsnav h1{
+    font-size: 22px;
+    color: #FF5D12;
+    font-weight: bold;
+}
+.specialsnav a{
+    float: right;
+    font-size: 20px;
+    color: #522209;
+    font-weight: 900;
+    margin-right: 10%;
+    text-align: center;
+}
+.specialsnav a:hover{
+    text-decoration-style: solid #522209;
+}
+.specialsnav a img{
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+}
+#specialslides .card{
+    background-color: #E4E8EB;
+}
+.specialslides .card1 img{
+    height: 47%;
+    object-fit: cover;
+}
+.specialslides .card2 img{
+    height: 100%;
+    object-fit: cover;
+}
+.specialslides .card3 img{
+    height: 100%;
+    object-fit: cover;
+}
+.specialslides .card1 span{
+    color: #FF5D12;
+    font-size: 40px;
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: bold;
+    margin-top: -20%;
+}
+.specialslides .card1 h5{
+    position: relative;
+    color:#522209;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Archivo Black', sans-serif;
+    line-height: 38px;
+}
+.specialslides .card2 span{
+    color: #FF5D12;
+    font-size: 40px;
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: bold;
+    margin-top: -20%;
+}
+.specialslides .card2 h5{
+    position: relative;
+    color:#522209;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Archivo Black', sans-serif;
+    line-height: 38px;
+}
+.specialslides .card3 span{
+    color: #FF5D12;
+    font-size: 40px;
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: bold;
+    margin-top: -20%;
+}
+.specialslides .card3 h5{
+    position: relative;
+    color:#522209;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Archivo Black', sans-serif;
+    line-height: 38px;
+}
+.specialslides button{
+    background-color:#FF5D12;
+    float: left;
+    margin-top: 20%;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 150px;
+    height: 50px;
+}
+.specialslides button a{
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}
