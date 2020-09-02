@@ -201,13 +201,13 @@
     
 }
 .slides-for-you .see-all-arrow{
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     object-fit: cover;
     background-color: white;
     border-radius: 50%;
     float: right;
-    margin-top: -19%;
+    margin-top: -17%;
 }
 .slides-for-you a h4{
     font-size: 18px;
