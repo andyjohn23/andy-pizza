@@ -207,12 +207,14 @@
     background-color: white;
     border-radius: 50%;
     float: right;
-    margin-top: -21%;
+    margin-top: -19%;
 }
-.slides-for-you h4 a{
+.slides-for-you a h4{
     font-size: 18px;
     font-weight:800;
     font-family: 'Archivo Black', sans-serif;
     color:#522209;
+}
+.slides-for-you .card a{
     text-decoration: none;
 }
