@@ -152,7 +152,7 @@ body{
 .menugallery .card img{
     border-radius: 20px;
 }
-.menugallery button a{
+.menugallery a button{
     text-decoration: none;
     color: white;
     font-size: 15px;
