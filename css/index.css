@@ -138,6 +138,7 @@
     border-radius: 20px;
     border: none;
     background-color:rgba(224, 224, 224, 0.2);
+    margin: 5px;
 }
 .menugallery .card img{
     border-radius: 20px;
