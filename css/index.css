@@ -168,3 +168,49 @@
     font-weight: bold;
     font-family: 'Archivo Black', sans-serif;
 }
+.all-for-you{
+    margin-top: 4%;
+    margin-left: 5%;
+}
+.all-for-you h1{
+    font-size: 22px;
+    color: #FF5D12;
+    font-weight: bold;
+}
+.all-for-you a{
+    float: right;
+    font-size: 20px;
+    color: #522209;
+    font-weight: 900;
+    margin-right: 10%;
+    text-align: center;
+}
+.all-for-you a:hover{
+    text-decoration-style: solid #522209;
+}
+.all-for-you a img{
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+}
+.slides-for-you{
+    margin-top: 1%;
+}
+.slides-for-you .card{
+    width: 120%;
+}
+.slides-for-you .for-you-arrow-prev{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    transform: rotate(60deg);
+    background-color: white;
+    border-radius: 50%;
+}
+.slides-for-you .for-you-arrow-next{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    background-color: white;
+    border-radius: 50%;
+}
