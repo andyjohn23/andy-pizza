@@ -197,20 +197,22 @@
     margin-top: 1%;
 }
 .slides-for-you .card{
-    width: 120%;
+    width: 100%;
+    
 }
-.slides-for-you .for-you-arrow-prev{
-    width: 30px;
-    height: 30px;
-    object-fit: cover;
-    transform: rotate(60deg);
-    background-color: white;
-    border-radius: 50%;
-}
-.slides-for-you .for-you-arrow-next{
+.slides-for-you .see-all-arrow{
     width: 30px;
     height: 30px;
     object-fit: cover;
     background-color: white;
     border-radius: 50%;
+    float: right;
+    margin-top: -21%;
+}
+.slides-for-you h4 a{
+    font-size: 18px;
+    font-weight:800;
+    font-family: 'Archivo Black', sans-serif;
+    color:#522209;
+    text-decoration: none;
 }
