@@ -136,14 +136,9 @@
 }
 a.custom-card,
 a.custom-card:hover {
-  background-image: url("../images/pizza3.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
   background-color: white;
   color: inherit;
   border: none;
-  height: 350px;
   text-decoration: none;
 }
 a.custom-card h2{
