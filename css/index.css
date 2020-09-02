@@ -134,15 +134,27 @@
     font-weight: bolder;
     font-family: 'Archivo Black', sans-serif;
 }
-a.custom-card,
-a.custom-card:hover {
-  background-color: white;
-  color: inherit;
+.menugallery button a{
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    font-family:sans-serif;
+    font-weight: 500;
+}
+.menugallery button{
+  background-color:#FF5D12;
   border: none;
   text-decoration: none;
+  width: 120px;
+  height: 40px;
+  border-radius: 20px;
+  box-shadow: #FF5D12;
 }
-a.custom-card h2{
-    font-size: 30px;
+.menugallery .card-text{
+    font-size: 13px;
+}
+.menugallery h5{
+    font-size: 18px;
     color:#522209;
     font-weight: bold;
     font-family: 'Archivo Black', sans-serif;
