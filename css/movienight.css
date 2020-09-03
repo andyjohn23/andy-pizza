@@ -60,7 +60,7 @@ body{
     font-family: 'Archivo Black', sans-serif;
 }
 .specialheader{
-    background:linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url("../images/allforyou.jpg");
+    background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../images/movienight.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -118,6 +118,7 @@ body{
     background-color: rgba(228, 232, 235, 0.5);
     width: 85%;
     border-radius: 10px;
+    border: solid #15943B;
 }
 .special-column .card img{
     border-radius: 10px;
@@ -125,23 +126,24 @@ body{
 .special-column .card h5{
     font-size: 28px;
     font-family: 'Archivo Black', sans-serif;
-    color:#522209;
-    padding-top: 20px;
+    color:#15943B;
+    padding-top: 10px;
 }
 .special-column .card p{
     font-size: 14px;
+    color: #15943B;
 }
 .special-column .card span{
     font-size: 18px;
-    color:#522209;
+    color:#15943B;
     font-weight: bold;
 }
 .special-column .card button{
     float: right;
-    background-color: #FF5D12;
+    background-color: #15943B;
     width: 150px;
     height: 40px;
-    margin-top: 15%;
+    margin-bottom: 3%;
     outline: none;
     border: none;
     box-shadow: #FF5D12;
