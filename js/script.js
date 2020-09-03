@@ -5,19 +5,19 @@ let carts = document.querySelectorAll(".add-cart");
 let products = [
     {
         name: "Garden veggie",
-        price: "khs 1050",
+        price: 1050,
         tag:"garden veggie",
         incart:0
     },
     {
         name: "veggie",
-        price: "khs 1050",
+        price: 50,
         tag:"veggie",
         incart:0
     },
     {
         name: "Garden",
-        price: "khs 1050",
+        price: 100,
         tag:"garden",
         incart:0
     }
@@ -26,6 +26,7 @@ let products = [
 for(let i = 0; i < carts.length; i++){
     carts[i].addEventListener("click", () => {
         cartNumbers(products[i]);
+        totalCost(products[i]);
     })
 }
 
@@ -76,5 +77,16 @@ function setItems(product){
 
 }
 
+function totalCost(product){
+
+    let cartCost = localStorage.getItem("totalCost");
+
+    if(cartCost != null){
+        cartCost = parseInt(cartCost);
+        localStorage.setItem("totalCost", cartCost + product.price);
+    }else{
+        localStorage.setItem("totalCost", product.price);
+    }
+}
 onLoadCartNumbers();
 }
