@@ -92,7 +92,7 @@ body{
     font-size: 14px;
     color: #522209;
 }
-.specialheader2 .price, a button{
+.specialheader2 .price, button{
     margin-left: 15%;
 }
 .specialheader2 .price{
@@ -100,7 +100,7 @@ body{
     font-family: 'Archivo Black', sans-serif;
     color: #522209;
 }
-.specialheader2 a button{
+.specialheader2  button{
     background-color: #FF5D12;
     width: 150px;
     height: 40px;
