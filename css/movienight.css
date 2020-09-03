@@ -65,14 +65,50 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    height: 250px;
+    height: 350px;
 }
 .specialheader h1{
     font-size: 30px;
     color: white;
     font-family: 'Roboto Slab', serif;
     font-weight: bold;
-    padding-top: 110px;
+    padding-top: 70px;
+}
+.specialheader2{
+    width: 100%;
+    height: 210px;
+    background-color:rgba(209, 222, 229, 0.8);
+    margin-top: 3%;
+    padding-left: 160px;
+    padding-top: 35px;
+}
+.specialheader2 span{
+    font-size: 28px;
+    font-weight: 300;
+    font-family: 'Archivo Black', sans-serif;
+    color: #522209;
+}
+.specialheader2 p{
+    font-size: 14px;
+    color: #522209;
+}
+.specialheader2 .price, a button{
+    margin-left: 15%;
+}
+.specialheader2 .price{
+    font-size: 30px;
+    font-family: 'Archivo Black', sans-serif;
+    color: #522209;
+}
+.specialheader2 a button{
+    background-color: #FF5D12;
+    width: 150px;
+    height: 40px;
+    outline: none;
+    border: none;
+    box-shadow: #FF5D12;
+    border-radius: 20px;
+    color: white;
 }
 .special-column{
     margin-top: 5%;
