@@ -1,5 +1,3 @@
-window.onload = function() {
-
 let carts = document.querySelectorAll(".add-cart");
 
 let products = [
@@ -88,5 +86,14 @@ function totalCost(product){
         localStorage.setItem("totalCost", product.price);
     }
 }
-onLoadCartNumbers();
+
+function displayCart () {
+    let cartItems = localStorage.getItem("productsincart");
+    cartItems = JSON.parse(cartItems);
+   
+    console.log(cartItems);
+    
+        
 }
+onLoadCartNumbers();
+displayCart ();

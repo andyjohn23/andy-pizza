@@ -227,8 +227,8 @@ body{
 .slides-for-you .card a{
     text-decoration: none;
 }
-.cart{
-    font-size: 20px;
+.cart i{
+    font-size: 37px;
     color: white;
 }
 .cart a button{
@@ -239,10 +239,17 @@ body{
     outline: none;
     border-radius: 10px;
     color: white;
+    position: relative;
 }
 .cart span{
-    font-size: 20px;
+    font-size: 14px;
     color: white;
+    position: absolute;
+    right: 75px;
+    background-color: #606060;
+    padding: 0 3px;
+    border-radius: 20%;
+
 }
 .page-footer{
     margin-top: 25%;
