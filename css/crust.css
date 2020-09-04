@@ -124,6 +124,23 @@ body{
     height: 100px;
     background-color:#D2DDE5;
 }
+.cart{
+    font-size: 20px;
+    color: white;
+}
+.cart a button{
+    width: 200px;
+    height: 50px;
+    background-color: #FF5D12;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    color: white;
+}
+.cart span{
+    font-size: 20px;
+    color: white;
+}
 .footer{
     padding-top: 20px;
     margin-left: 20%;

@@ -228,12 +228,6 @@ body{
     text-decoration: none;
 }
 .cart{
-    float: right;
-    position: fixed;
-    margin-left: 84%;
-    margin-top: 37%;
-    padding-top: 10px;
-    padding-right: 50px;
     font-size: 20px;
     color: white;
 }
@@ -244,9 +238,11 @@ body{
     border: none;
     outline: none;
     border-radius: 10px;
+    color: white;
 }
 .cart span{
-    font-size: 23px;
+    font-size: 20px;
+    color: white;
 }
 .page-footer{
     margin-top: 25%;
