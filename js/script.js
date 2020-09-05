@@ -5,9 +5,10 @@ window.onload = function(){
         swal("COMING SOON...!!!");
     });
 
+    const cartContainer = document.querySelector(".container");
+
     const addToCart = document.getElementsByClassName("add-cart");
     let items = [];
-    console.log(addToCart);
     for(let i=0; i < addToCart.length; i++){
         addToCart[i].addEventListener("click", function(event){
             if(typeof (Storage) !== "undefined"){
@@ -48,6 +49,20 @@ window.onload = function(){
     });
     cart.innerHTML = number;
 
-    const productContainer = document.getElementsByClassName(".product-container table");
-    console.log(productContainer);
+    const productContainer = document.querySelector(".product-container table")
+    let cartData = ``;
+
+    cartData += `<tr><th>Index</th><th>Item Name</th><th>Quantity</th<th>Price</th><th></th></tr>`;
+     
+    if(JSON.parse(localStorage.getItem("items")) === null){
+        cartData += `<tr><td colspan="5">no items</td></tr>`
+    }else{
+        JSON.parse(localStorage.getItem("items")).map(data=>{
+           cartData += `<tr><th>`+data.id+`</th><th>`+data.name+`</th>
+           <th>`+data.number+`</th><th>`+data.price+`</th><th><a href="#" onclick=Delete(this);>
+           Delete</a></th><tr>`;
+        });
+    }
+
+    productContainer.innerHTML = cartData;
 }
