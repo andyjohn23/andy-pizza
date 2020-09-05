@@ -1,99 +1,53 @@
-let carts = document.querySelectorAll(".add-cart");
+window.onload = function(){
 
-let products = [
-    {
-        name: "Garden veggie",
-        price: 1050,
-        tag:"garden veggie",
-        incart:0
-    },
-    {
-        name: "veggie",
-        price: 50,
-        tag:"veggie",
-        incart:0
-    },
-    {
-        name: "Garden",
-        price: 100,
-        tag:"garden",
-        incart:0
-    }
-];
+    let offer = document.querySelector(".offer");
+    offer.addEventListener("click", function(){
+        swal("COMING SOON...!!!");
+    });
 
-for(let i = 0; i < carts.length; i++){
-    carts[i].addEventListener("click", () => {
-        cartNumbers(products[i]);
-        totalCost(products[i]);
-    })
-}
-
-function onLoadCartNumbers() {
-    let productNumber = localStorage.getItem(".cartNumbers");
-
-    if(productNumber){
-        document.querySelector(".card button span").textContent = productNumber;
-    }
-}
-
-function cartNumbers(product) {
-    let productNumber = localStorage.getItem("cartNumbers");
-    productNumber = parseInt(productNumber);
-
-    if(productNumber) {
-        localStorage.setItem("cartNumbers", productNumber + 1);
-        document.querySelector(".cart button span").textContent = productNumber + 1;
-    }else{
-        localStorage.setItem("cartNumbers", 1);
-        document.querySelector(".cart button span").textContent = 1;
-    }
-
-    setItems(product);
-}
-
-function setItems(product){
-    let cartItems = localStorage.getItem("productsincart");
-    cartItems = JSON.parse(cartItems);
-
-    if(cartItems != null) {
-
-        if(cartItems[product.tag] == undefined){
-            cartItems = {
-                ...cartItems,
-                [product.tag]: product
+    const addToCart = document.getElementsByClassName("add-cart");
+    let items = [];
+    console.log(addToCart);
+    for(let i=0; i < addToCart.length; i++){
+        addToCart[i].addEventListener("click", function(event){
+            if(typeof (Storage) !== "undefined"){
+               let item = {
+                   id: i+1,
+                   name:event.target.parentElement.children[0].textContent,
+                   price:event.target.parentElement.children[2].children[0].textContent,
+                   number:1
+               };
+               if(JSON.parse(localStorage.getItem("items")) === null){
+                items.push(item);
+                localStorage.setItem("items", JSON.stringify(items));
+                window.location.reload();
+               }else{
+                  const localItems = JSON.parse(localStorage.getItem("items"));
+                  localItems.map(data=>{
+                      if(item.id == data.id){
+                          item.number = data.number + 1;
+                          console.log(item);
+                      }else{
+                          items.push(data);
+                      }
+                  });
+                  items.push(item);
+                  localStorage.setItem("items", JSON.stringify(items));
+                  window.location.reload();
+               }
+            }else{
+                console.log("Sorry not working!!!");
             }
-
-        }
-        cartItems[product.tag].incart +=1;
-    }else{
-        product.incart = 1;
-         cartItems = {
-          [product.tag]: product
-        }
+        });
     }
-    localStorage.setItem("productsincart", JSON.stringify(cartItems));
-
-}
-
-function totalCost(product){
-
-    let cartCost = localStorage.getItem("totalCost");
-
-    if(cartCost != null){
-        cartCost = parseInt(cartCost);
-        localStorage.setItem("totalCost", cartCost + product.price);
-    }else{
-        localStorage.setItem("totalCost", product.price);
-    }
-}
-
-function displayCart () {
-    let cartItems = localStorage.getItem("productsincart");
-    cartItems = JSON.parse(cartItems);
    
-    console.log(cartItems);
-    
-        
+    const cart = document.querySelector(".cart span");
+    let number = 0;
+    JSON.parse(localStorage.getItem("items")).map(data=>{
+        number = number + data.number;
+    });
+    cart.innerHTML = number;
+
+    const productContainer = document.getElementsByClassName(".product-container table");
+    console.log(productContainer);
 }
-onLoadCartNumbers();
-displayCart ();

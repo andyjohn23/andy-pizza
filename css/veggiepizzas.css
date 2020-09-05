@@ -74,6 +74,13 @@ body{
     font-weight: bold;
     padding-top: 110px;
 }
+.pizza-choice{
+    height: 200px;
+}
+.pizza-choice button{
+    margin-top: 5%;
+    margin-right: 35%;
+}
 .special-column{
     margin-top: 5%;
     margin-left: 15%;
@@ -99,7 +106,7 @@ body{
     color:#522209;
     font-weight: bold;
 }
-.special-column .card button{
+.special-column .card button, .pizza-choice button{
     float: right;
     background-color: #FF5D12;
     width: 150px;

@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="css/veggiepizzas.css" rel="stylesheet" type="text/css" media="all">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>J-PIZZA</title>
 </head>
 
-<body onLoad = "onLoadCartNumbers();" class="container-fluid" style="padding: 0; margin: 0;">
+<body class="container-fluid" style="padding: 0; margin: 0;">
 
     <nav class="navbar sticky-top navbar-expand-lg">
         <a class="navbar-brand logo" href="index.html">J-PIZZA
@@ -32,10 +33,10 @@
                 </li>
 
                 <li class="cart">
-                    <a href="cart.html">
-                      <button type="button" title=" food cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        Cart <span>0</span>
-                      </button>
+                    <a href="#">
+                        <button type="button" title=" food cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            Cart <span>0</span>
+                        </button>
                     </a>
                 </li>
 
@@ -53,6 +54,35 @@
     </div>
 
     <div class="container">
+        <div class="modal fade" id="size-choice" tabindex="-1" role="dialog" aria-labelledby="size-choice"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="size-choice">CHOOSE SIZE</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body pizza-choice">
+                        <div class="form-group">
+                            <label for="pizza-size-selection">Please Select size</label>
+                            <select class="form-control" id="pizza-size-selection" required>
+                                <option selected value="Select size" disabled>Select Size</option>
+                                <option>Small 6 slices &nbsp; <strong>Ksh 500</strong></option>
+                                <option>Medium 8 slices &nbsp; <strong>Ksh 800</strong></option>
+                                <option>Large 10 slices &nbsp; <strong>Ksh 1100</strong></option>
+                                <option>X-Large 12 slices &nbsp; <strong>Ksh 1500</strong></option>
+                            </select>
+                        </div>
+                        <button type="submit" class="add-cart">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
         <div class="special-column">
             <div class="row">
                 <div class="col-md-12">
@@ -66,11 +96,13 @@
                                 <div class="card-body">
                                     <h5 class="card-title">GARDEN VEGGIE</h5>
                                     <p class="card-text">Eating your veggies never tasted so good. Bite into the
-                                        market-fresh crunch of green peppers, fresh mushrooms, juicy roma tomatoes, and
+                                        market-fresh crunch of green peppers, fresh mushrooms, juicy roma tomatoes,
+                                        and
                                         mozzarella on a whole grain crust.
                                     </p>
-                                    <p class="card-text"><span>Starting from ksh. 1050/=</span></p>
-                                    <button type="submit" class="add-cart">ADD TO CART</button>
+                                    <p class="card-text"><span>Starting from ksh. 500/=</span></p>
+                                    <button type="button" data-toggle="modal" data-target="#size-choice">ADD TO
+                                        CART</button>
                                 </div>
                             </div>
 
@@ -87,12 +119,14 @@
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">PESTO AMORE</h5>
-                                    <p class="card-text">his market-inspired recipe tops a crisp whole grain crust with
+                                    <p class="card-text">his market-inspired recipe tops a crisp whole grain crust
+                                        with
                                         fresh spinach, fire-roasted red peppers, red onions, basil pesto sauce, goat
                                         cheese and mozzarella. What's not to love?
                                     </p>
-                                    <p class="card-text"><span>Starting from ksh. 1000/=</span></p>
-                                      <button type="submit" class="add-cart">ADD TO CART</button>
+                                    <p class="card-text"><span>Starting from ksh. 500/=</span></p>
+                                    <button type="button" data-toggle="modal" data-target="#size-choice">ADD TO
+                                        CART</button>
                                 </div>
                             </div>
 
@@ -108,11 +142,13 @@
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">SPICY TANDOORI VEGGIE</h5>
-                                    <p class="card-text">Made with a delicious tandoori masala & green chili sauce, red
+                                    <p class="card-text">Made with a delicious tandoori masala & green chili sauce,
+                                        red
                                         onions, green peppers, mushrooms, and topped with chili flakes and cilantro.
                                     </p>
-                                    <p class="card-text"><span>Starting from ksh. 1050/=</span></p>
-                                    <button type="submit" class="add-cart">ADD TO CART</button>
+                                    <p class="card-text"><span>Starting from ksh. 500/=</span></p>
+                                    <button type="button" data-toggle="modal" data-target="#size-choice">ADD TO
+                                        CART</button>
                                 </div>
                             </div>
                         </div>
@@ -131,8 +167,9 @@
                                         grilled zucchini, red onions, feta cheese and mozzarella cheese. A healthy
                                         alternative.
                                     </p>
-                                    <p class="card-text"><span>Starting from ksh. 1600/=</span></p>
-                                    <button type="submit" class="add-cart">ADD TO CART</button>
+                                    <p class="card-text"><span>Starting from ksh. 500/=</span></p>
+                                    <button type="button" data-toggle="modal" data-target="#size-choice">ADD TO
+                                        CART</button>
                                 </div>
                             </div>
                         </div>
@@ -151,8 +188,9 @@
                                         Italiano blend seasoning, and made with creamy garlic sauce and mozzarella
                                         cheese. Tip: Try customizing to a thick crust.
                                     </p>
-                                    <p class="card-text"><span>Starting from ksh. 1200/=</span></p>
-                                    <button type="submit" class="add-cart">ADD TO CART</button>
+                                    <p class="card-text"><span>Starting from ksh. 500/=</span></p>
+                                    <button type="button" data-toggle="modal" data-target="#size-choice">ADD TO
+                                        CART</button>
                                 </div>
                             </div>
                         </div>
@@ -163,8 +201,8 @@
     </div>
 
     <div class="container-fluid">
-        
-      </div>
+
+    </div>
 
     <footer class="page-footer">
         <div class="container-fluid" style="padding: 0px; margin: 0px;">
@@ -194,7 +232,6 @@
     </footer>
 
 
-    <script src="js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -204,6 +241,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
 
 </body>
 
