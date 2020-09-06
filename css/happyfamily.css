@@ -54,11 +54,6 @@ body{
     padding-right:600px;
     padding-top: 10px;
 }
-.offer a{
-    color: white;
-    font-size: 18px;
-    font-family: 'Archivo Black', sans-serif;
-}
 .specialheader{
     background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../images/happyfamilia.jpg");
     background-position: center;
@@ -162,8 +157,8 @@ body{
     height: 100px;
     background-color:#D2DDE5;
 }
-.cart{
-    font-size: 20px;
+.cart i{
+    font-size: 37px;
     color: white;
 }
 .cart a button{
@@ -174,10 +169,17 @@ body{
     outline: none;
     border-radius: 10px;
     color: white;
+    position: relative;
 }
 .cart span{
-    font-size: 20px;
+    font-size: 14px;
     color: white;
+    position: absolute;
+    right: 75px;
+    background-color: #606060;
+    padding: 0 3px;
+    border-radius: 20%;
+
 }
 .footer{
     padding-top: 20px;
