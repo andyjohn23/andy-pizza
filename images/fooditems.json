@@ -43,17 +43,7 @@
     ]
 }
 
-let removeCartItem = document.getElementsByClassName("remove");
 
-for(let i=0; i < removeCartItem.length; i++){
- let button = removeCartItem[i]
-
- button.addEventListener("click", function(e) {
-    let clickedButton = e.target;
-    clickedButton.parentElement.parentElement.parentElement.parentElement.remove()
- })
-
-}
 let carts = document.querySelectorAll(".add-cart");
 
 let products = [
