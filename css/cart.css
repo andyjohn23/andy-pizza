@@ -80,9 +80,13 @@ body{
 }
 .product-container{
     margin-top: 6%;
+    margin-right: 20%;
 }
 .product-container table th{
     color: #FF5D12;
+}
+.product-container .index, .index2{
+    visibility: hidden;
 }
 .page-footer{
     margin-top: 42%;

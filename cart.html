@@ -14,7 +14,7 @@
         function Delete(event){
          let items = [];
          JSON.parse(localStorage.getItem("items")).map(data=>{
-             if(data.id != event.parentElement.parentElement.children[0].textContent){
+             if(data.name != event.parentElement.parentElement.children[0].textContent){
                 items.push(data);
              }
          });
@@ -60,16 +60,11 @@
 
     <div class="container">
         <div class="product-container">
-          <h5>Cart</h5>
-           <table class="table"></table>
+          <h5 class="text-center">FOOD CART</h5>
+           <center><table class="table"></table></center>
         </div>
 
     </div>
-
-
-
-
-
 
     <footer class="page-footer">
         <div class="container-fluid" style="padding: 0px; margin: 0px;">

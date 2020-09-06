@@ -5,15 +5,14 @@ window.onload = function(){
         swal("COMING SOON...!!!");
     });
 
-    const cartContainer = document.querySelector(".container");
-
+    let total = 0;
     const addToCart = document.getElementsByClassName("add-cart");
     let items = [];
     for(let i=0; i < addToCart.length; i++){
         addToCart[i].addEventListener("click", function(event){
             if(typeof (Storage) !== "undefined"){
                let item = {
-                   id: i+1,
+                  
                    name:event.target.parentElement.children[0].textContent,
                    price:event.target.parentElement.children[2].children[0].textContent,
                    number:1
@@ -25,7 +24,7 @@ window.onload = function(){
                }else{
                   const localItems = JSON.parse(localStorage.getItem("items"));
                   localItems.map(data=>{
-                      if(item.id == data.id){
+                      if(item.name === data.name){
                           item.number = data.number + 1;
                           console.log(item);
                       }else{
@@ -52,30 +51,33 @@ window.onload = function(){
     const productContainer = document.querySelector(".product-container table")
     let cartData = ``;
 
-    cartData += 
-    `<tr>
-    <th scope="col">INDEX</th>
-    <th scope="col">ITEM NAME</th>
-    <th scope="col">QUANTITY</th>
-    <th scope="col">PRICE</th>
-    <th scope="col">TOTAL</th>
-    <th scope="col">REMOVE</th>
-     </tr>`;
+    cartData += `<tr>
+    <th class="index">INDEX</th>
+    <th>ITEM NAME</th>
+    <th>QUANTITY</th>
+    <th>PRICE</th>
+    <th>TOTAL</th>
+    <th>REMOVE</th>
+    </tr>`;
      
     if(JSON.parse(localStorage.getItem("items")) === null){
-        cartData += `<tr><td colspan="5">No items</td></tr>`
+        cartData += `<tr><td>No items</td></tr>`
     }else{
         JSON.parse(localStorage.getItem("items")).map(data=>{
-           cartData += 
-           `<td>`+data.id+`</td>
-            <td>`+data.name+`</td>
-            <td>`+data.number+`</td>
-            <td>`+data.price+`</td>
-            <td></td>
-            <td><a href="#" onclick=Delete(this);>Delete</a></td>`;
+           cartData += `<tr>
+           <th class="index2">`+data.name+`</th>
+           <th>`+data.name+`</th>
+           <th>`+data.number+`</th>
+           <th>`+data.price+`</th>
+           <th>`+total+`</th>
+           <th><a href="#" onclick=Delete(this);>Delete</a></th><tr>`
         });
     }
 
 
     productContainer.innerHTML = cartData;
+    function totalCost(amount){
+        total += amount.price;
+    }
+    item.forEach(totalCost);
 }
