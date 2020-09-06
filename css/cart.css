@@ -79,15 +79,29 @@ body{
 
 }
 .product-container{
-    margin-top: 6%;
-    margin-right: 20%;
+    max-width: 650px;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 100px;
+
 }
-.product-container table th{
-    color: #FF5D12;
+.product-container h5{
+    border-bottom: 1px solid grey;
+    justify-content: flex-start;
+    margin: 0 auto;
 }
-.product-container .index, .index2{
-    visibility: hidden;
+.product-container .product{
+    width: 20%;
 }
+.product-container .price{
+    width: 15%;
+    align-items: center;
+    display: flex;
+}
+
 .page-footer{
     margin-top: 42%;
     width: 100%;

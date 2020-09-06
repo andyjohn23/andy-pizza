@@ -1,108 +1,137 @@
-window.onload = function(){
+let carts = document.querySelectorAll(".add-cart");
 
-    let offer = document.querySelector(".offer");
-    offer.addEventListener("click", function(){
-        swal("COMING SOON...!!!");
-    });
+let products = [
+    {
+        name: "Garden veggie",
+        price: 1050,
+        tag:"pestoamore",
+        incart:0
+    },
+    {
+        name: "veggie",
+        price: 50,
+        tag:"pestoamore",
+        incart:0
+    },
+    {
+        name: "Garden",
+        price: 100,
+        tag:"pestoamore",
+        incart:0
+    },{
+        name: "Garden veggie",
+        price: 1050,
+        tag:"garden veggie",
+        incart:0
+    },
+    {
+        name: "Garden veggie",
+        price: 1050,
+        tag:"pestoamore",
+        incart:0
+    },
+    {
+        name: "Garden veggie",
+        price: 1050,
+        tag:"pestoamore",
+        incart:0
+    },
+];
 
-    let removeCartItem = document.getElementsByClassName("remove");
-
-    for(let i=0; i < removeCartItem.length; i++){
-    let button = removeCartItem[i]
-
-    button.addEventListener("click", function(e) {
-        let clickedButton = e.target;
-        clickedButton.parentElement.parentElement.parentElement.parentElement.remove()
+for(let i = 0; i < carts.length; i++){
+    carts[i].addEventListener("click", () => {
+        cartNumbers(products[i]);
+        totalCost(products[i]);
     })
-
-    }
-
-    let total = 0;
-    const addToCart = document.getElementsByClassName("add-cart");
-    let items = [];
-    for(let i=0; i < addToCart.length; i++){
-        addToCart[i].addEventListener("click", function(event){
-            if(typeof (Storage) !== "undefined"){
-               let item = {
-                   name:event.target.parentElement.children[0].textContent,
-                   price:event.target.parentElement.children[2].children[0].textContent,
-                   number:1,
-               };
-               if(JSON.parse(localStorage.getItem("items")) === null){
-                items.push(item);
-                localStorage.setItem("items", JSON.stringify(items));
-                window.location.reload();
-               }else{
-                  const localItems = JSON.parse(localStorage.getItem("items"));
-                  localItems.map(data=>{
-                      if(item.name === data.name){
-                          item.number = data.number + 1;
-                          console.log(item);
-                      }else{
-                          items.push(data);
-                      }
-                  });
-                  items.push(item);
-                  localStorage.setItem("items", JSON.stringify(items));
-                  window.location.reload();
-               }
-            }else{
-                console.log("Sorry not working!!!");
-            }
-        });
-    }
-   
-    const cart = document.querySelector(".cart span");
-    let number = 0;
-    JSON.parse(localStorage.getItem("items")).map(data=>{
-        number = number + data.number;
-    });
-    cart.innerHTML = number;
-
-    function totalCost(product){
-
-        let cartCost = JSON.parse(localStorage.getItem("items"));
-        cartCost.map(data=>{
-        if(cartCost != null){
-            cartCost = (cartCost);
-            localStorage.setItem("totalCost", cartCost + product.price);
-        }else{
-            localStorage.setItem("totalCost", product.price);
-        }
-    });
-    }
-    
-
-    const productContainer = document.querySelector(".product-container table")
-    let cartData = ``;
-
-    cartData += `<tr>
-    <th class="index">INDEX</th>
-    <th>ITEM NAME</th>
-    <th>QUANTITY</th>
-    <th>PRICE</th>
-    <th>TOTAL</th>
-    <th>REMOVE</th>
-    </tr>`;
-     
-    if(JSON.parse(localStorage.getItem("items")) === null){
-        cartData += `<tr><td>No items</td></tr>`
-    }else{
-        JSON.parse(localStorage.getItem("items")).map(data=>{
-           cartData += `<tr>
-           <th class="index2">`+data.name+`</th>
-           <th>`+data.name+`</th>
-           <th>`+data.number+`</th>
-           <th>`+data.price+`</th>
-           <th>`+total+`</th>
-           <th><a href="#" onclick=Delete(this);>Delete</a></th><tr>`
-        });
-    }
-
-
-    productContainer.innerHTML = cartData;
-    function totalCost(amount){
-        total += amount.price;
-    }
-    item.forEach(totalCost);
 }
+
+function onLoadCartNumbers() {
+    let productNumber = localStorage.getItem(".cartNumbers");
+
+    if(productNumber){
+        document.querySelector(".card button span").textContent = productNumber;
+    }
+}
+
+function cartNumbers(product) {
+    console.log("this", product);
+    let productNumber = localStorage.getItem("cartNumbers");
+    productNumber = parseInt(productNumber);
+
+    if(productNumber) {
+        localStorage.setItem("cartNumbers", productNumber + 1);
+        document.querySelector(".cart button span").textContent = productNumber + 1;
+    }else{
+        localStorage.setItem("cartNumbers", 1);
+        document.querySelector(".cart button span").textContent = 1;
+    }
+
+    setItems(product);
+}
+
+function setItems(product){
+    let cartItems = localStorage.getItem("productsInCart");
+    cartItems = JSON.parse(cartItems);
+
+    if(cartItems != null) {
+
+        if(cartItems[product.tag] == undefined){
+            cartItems = {
+                ...cartItems,
+                [product.tag]: product
+            }
+
+        }
+        cartItems[product.tag].incart +=1;
+    }else{
+        product.incart = 1;
+         cartItems = {
+          [product.tag]: product
+        }
+    }
+    localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+
+}
+
+function totalCost(product){
+
+    let cartCost = localStorage.getItem("totalCost");
+
+    if(cartCost != null){
+        cartCost = parseInt(cartCost);
+        localStorage.setItem("totalCost", cartCost + product.price);
+    }else{
+        localStorage.setItem("totalCost", product.price);
+    }
+}
+
+function displayCart () {
+    let cartItems = localStorage.getItem("productsInCart");
+    cartItems = JSON.parse(cartItems);
+
+    let productContainer = document.querySelector(".products");
+
+    console.log(cartItems);
+
+    if(cartItems && productContainer) {
+        productContainer.innerHTML = ``;
+        Object.values(cartItems).map(data => {
+            productContainer.innerHTML += `
+            <div class="product">
+            <ion-icon name="trash-outline"></ion-icon>
+            <img src="images/${data.tag}.jpg">
+            <span>${data.name}</span>
+            </div>
+
+            <div class="price">${item.price},00</div>
+            <div class="quantity">
+            <ion-icon name="remove-circle-outline"></ion-icon>
+            <span>${item.incart}</span>
+            <ion-icon name="add-circle-outline"></ion-icon>
+            </div>`;
+        })
+    }
+}
+onLoadCartNumbers();
+displayCart ();
+

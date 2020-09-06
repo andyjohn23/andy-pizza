@@ -95,8 +95,7 @@ body{
     color:#522209;
     font-weight: bold;
 }
-.special-column .card button{
-    float: right;
+.special-column button{
     background-color: #FF5D12;
     width: 150px;
     height: 40px;
