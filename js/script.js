@@ -63,7 +63,7 @@ $(document).ready(function(){
       console.log("nothing selected");
       $("button.order").show();
       $("div.finalorder").hide();
-      alert("Please select pizza size and crust"); 
+      swal("Please Make a Selection"); 
     }
     else{
       $("button.order").hide();
@@ -185,7 +185,7 @@ $(document).ready(function(){
         $("#finallmessage").slideDown(1200);
       }
       else {
-        alert("Please fill in the details for delivery!");
+        swal("Please fill delivery details!");
         $(".delivery").show();
         $("button#final-order").show();
       }
