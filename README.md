@@ -10,7 +10,7 @@ to order pizza online and late delivered to them wherever they are.
 <img src="images/j-pizza.jpg" width="800px" height="400px">
 
 
-[AKAN](https://andyjohn23.github.io/akan-repo/)
+[J-PIZZA](https://andyjohn23.github.io/akan-repo/)
 
 ## SETUP INSTRUCTIONS
 
