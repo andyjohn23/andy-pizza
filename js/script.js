@@ -127,7 +127,7 @@ $(document).ready(function(){
           default:
             console.log("error");  
         }
-        let topping_value = ptopping.length*50;
+        let topping_value = ptopping.length*100;
         console.log("toppins value" + topping_value);
         total = price + crustPrice + topping_value;
         console.log(total);
