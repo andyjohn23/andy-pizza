@@ -1,137 +1,195 @@
-let carts = document.querySelectorAll(".add-cart");
-
-let products = [
-    {
-        name: "Garden veggie",
-        price: 1050,
-        tag:"pestoamore",
-        incart:0
-    },
-    {
-        name: "veggie",
-        price: 50,
-        tag:"pestoamore",
-        incart:0
-    },
-    {
-        name: "Garden",
-        price: 100,
-        tag:"pestoamore",
-        incart:0
-    },{
-        name: "Garden veggie",
-        price: 1050,
-        tag:"garden veggie",
-        incart:0
-    },
-    {
-        name: "Garden veggie",
-        price: 1050,
-        tag:"pestoamore",
-        incart:0
-    },
-    {
-        name: "Garden veggie",
-        price: 1050,
-        tag:"pestoamore",
-        incart:0
-    },
-];
-
-for(let i = 0; i < carts.length; i++){
-    carts[i].addEventListener("click", () => {
-        cartNumbers(products[i]);
-        totalCost(products[i]);
-    })
+var price , crustPrice, topping_price ;
+let total = 0;
+function Getpizza( name,size,crust,topping, total ){
+  this.name = name;
+  this.size = size;
+  this.crust = crust;
+  this.topping = topping;
+  this.total = total;
 }
 
-function onLoadCartNumbers() {
-    let productNumber = localStorage.getItem(".cartNumbers");
+$(document).ready(function(){
+  $("button.order").click(function(event){
+   let pname = $(".name option:selected").val();
+   let psize = $("#size option:selected").val();
+   let pcrust = $("#crust option:selected").val();
+   let ptopping = [];
+   $.each($("input[name='toppings']:checked"), function(){            
+       ptopping.push($(this).val());
+   });
+   console.log(ptopping.join(", "));
 
-    if(productNumber){
-        document.querySelector(".card button span").textContent = productNumber;
+   switch(psize){
+    case "0":
+      price =0;
+    break;
+    case "large":
+       price = 1200;
+       console.log(price);
+     break;
+     case "medium":
+       price = 850;
+       console.log("The price is "+price);
+     break;
+     case "small":
+       price = 600;
+       console.log(price);
+     default:
+       console.log("error"); 
+   }
+   switch(pcrust){
+      case "0":
+        crustPrice =0;
+      break;
+      case "Crispy":
+        crustPrice = 200;
+        console.log(crustPrice);
+      break;
+      case "Stuffed":
+        crustPrice = 250;
+        console.log("The price is "+crustPrice);
+      break;
+      case "Gluten-free":
+        crustPrice = 180;
+        console.log(crustPrice);
+      break;
+      default:
+        console.log("No price"); 
     }
-}
+    let topping_value = ptopping.length*100;
+    console.log("toppins value" + topping_value);
 
-function cartNumbers(product) {
-    console.log("this", product);
-    let productNumber = localStorage.getItem("cartNumbers");
-    productNumber = parseInt(productNumber);
-
-    if(productNumber) {
-        localStorage.setItem("cartNumbers", productNumber + 1);
-        document.querySelector(".cart button span").textContent = productNumber + 1;
-    }else{
-        localStorage.setItem("cartNumbers", 1);
-        document.querySelector(".cart button span").textContent = 1;
+    if((psize == "0") && (pcrust == "0")){
+      console.log("nothing selected");
+      $("button.order").show();
+      $("div.finalorder").hide();
+      alert("Please select pizza size and crust"); 
+    }
+    else{
+      $("button.order").hide();
+      $("div.finalorder").slideDown(1000);
     }
 
-    setItems(product);
-}
+    total = price + crustPrice + topping_value;
+    console.log(+total);
+    let checkoutTotal =0;
+    checkoutTotal = checkoutTotal + total;
 
-function setItems(product){
-    let cartItems = localStorage.getItem("productsInCart");
-    cartItems = JSON.parse(cartItems);
-
-    if(cartItems != null) {
-
-        if(cartItems[product.tag] == undefined){
-            cartItems = {
-                ...cartItems,
-                [product.tag]: product
-            }
-
+    $("#pizzaname").html($(".name option:selected").val());
+    $("#pizzasize").html( $("#size option:selected").val());
+    $("#pizzacrust").html($("#crust option:selected").val());
+    $("#pizzatopping").html(ptopping.join(", "));
+    $("#totals").html(total);
+    
+    $("button.addPizza").click(function(){
+      let pname = $(".name option:selected").val();
+      let psize = $("#size option:selected").val();
+      let pcrust = $("#crust option:selected").val();
+      let ptopping = [];
+      $.each($("input[name='toppings']:checked"), function(){            
+          ptopping.push($(this).val());
+      });
+      console.log(ptopping.join(", "));
+      switch(psize){
+        case "0":
+          price =0;
+        break;
+        case "large":
+           price = 1200;
+           console.log(price);
+         break;
+         case "medium":
+           price = 850;
+           console.log("The price is "+price);
+         break;
+         case "small":
+           price = 600;
+           console.log(price);
+         default:
+           console.log("error"); 
+       }
+       switch(pcrust){
+          case "0":
+            crustPrice = 0;
+          break;
+          case "Crispy":
+            crustPrice = 200;
+            console.log("The price is "+crustPrice);
+          break;
+          case "Stuffed":
+            crustPrice = 150;
+            console.log(crustPrice);
+          break;
+          case "Gluten-free":
+            crustPrice = 180;
+            console.log(crustPrice);
+          break;
+          default:
+            console.log("error");  
         }
-        cartItems[product.tag].incart +=1;
-    }else{
-        product.incart = 1;
-         cartItems = {
-          [product.tag]: product
-        }
-    }
-    localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+        let topping_value = ptopping.length*50;
+        console.log("toppins value" + topping_value);
+        total = price + crustPrice + topping_value;
+        console.log(total);
 
-}
+        checkoutTotal = checkoutTotal + total;
+        console.log(checkoutTotal);
+      var newOrder = new Getpizza(pname, psize, pcrust,ptopping,total);
 
-function totalCost(product){
+      $("#ordersmade").append('<tr><td id="pizzaname">'+newOrder.name +'</td><td id="pizzasize">' + newOrder.size + '</td><td id="pizzacrust">'+newOrder.crust + '</td><td id="pizzatopping">'+newOrder.topping+'</td><td id="totals">'+newOrder.total+'</td></tr>');
+      console.log(newOrder);
+      
+      
 
-    let cartCost = localStorage.getItem("totalCost");
+    });
+    // Checkout button
+    $("button#checkout").click(function(){ 
+      $("button#checkout").hide();
+      $("button.addPizza").hide();
+      $("button.deliver").slideDown(1000);
+      $("#addedprice").slideDown(1000);
+      console.log("Your total bills is sh. "+checkoutTotal);
+      $("#pizzatotal").append("Your bill is sh. "+checkoutTotal);
+    });
 
-    if(cartCost != null){
-        cartCost = parseInt(cartCost);
-        localStorage.setItem("totalCost", cartCost + product.price);
-    }else{
-        localStorage.setItem("totalCost", product.price);
-    }
-}
+    // home delivery button
+    $("button.deliver").click(function(){
+      $(".pizzatable").hide();
+      $(".finalorder h2").hide();
+      $(".delivery").slideDown(1000);
+      $("#addedprice").hide();
+      $("button.deliver").hide();
+      $("#pizzatotal").hide();
+      let deliceryamount= checkoutTotal+150;
+      console.log("You will pay sh. "+deliceryamount+" on delivery");
+      $("#totalbill").append("Your bill plus delivery fee is: "+deliceryamount);
+    });
 
-function displayCart () {
-    let cartItems = localStorage.getItem("productsInCart");
-    cartItems = JSON.parse(cartItems);
+    // when one clicks place order button
+    $("button#final-order").click(function(event){
+      event.preventDefault();
 
-    let productContainer = document.querySelector(".products");
+      $("#pizzatotal").hide();
+      $(".delivery").hide();
+      $("button#final-order").hide();
+      let deliceryamount= checkoutTotal+150;
+      console.log("Final Bill is: "+deliceryamount);
+      let person = $("input#name").val();
+      let phone = $("input#phone").val();
+      let location = $("input#location").val();
 
-    console.log(cartItems);
-
-    if(cartItems && productContainer) {
-        productContainer.innerHTML = ``;
-        Object.values(cartItems).map(data => {
-            productContainer.innerHTML += `
-            <div class="product">
-            <ion-icon name="trash-outline"></ion-icon>
-            <img src="images/${data.tag}.jpg">
-            <span>${data.name}</span>
-            </div>
-
-            <div class="price">${item.price},00</div>
-            <div class="quantity">
-            <ion-icon name="remove-circle-outline"></ion-icon>
-            <span>${item.incart}</span>
-            <ion-icon name="add-circle-outline"></ion-icon>
-            </div>`;
-        })
-    }
-}
-onLoadCartNumbers();
-displayCart ();
-
+      if ($("input#name").val() && $("input#phone").val() && $("input#location").val()!=""){
+  
+        $("#finallmessage").append(person+", We have recieved your order and it will be delivered to you in "+location+ ". Prepare sh. "+deliceryamount);
+        $("#totalbill").hide();
+        $("#finallmessage").slideDown(1200);
+      }
+      else {
+        alert("Please fill in the details for delivery!");
+        $(".delivery").show();
+        $("button#final-order").show();
+      }
+    });
+   event.preventDefault();
+  });
+});
